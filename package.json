@@ -1,5 +1,5 @@
 {
-  "name": "uplot-react",
+  "name": "uplot-react-js",
   "version": "0.0.1",
   "description": "\"This is chart wrapper for uplot library\"",
   "main": "bundle/index.js",
