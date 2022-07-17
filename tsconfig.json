@@ -1,20 +1,30 @@
 {
   "compilerOptions": {
-    "module": "Commonjs",
-    "target": "ES2015",
-    "jsx": "react",
-    "sourceMap": true,
-    "outDir": "./dist",
-    "noImplicitAny": true,
-    "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "lib": [
+      "es5",
+      "es2015",
+      "es2016",
+      "dom",
+      "esnext"
+    ],
+    "types": [
+      "node"
+    ],
+    "module": "es2015",
     "moduleResolution": "node",
-    "declaration": true /* Skip type checking all .d.ts files. */
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "outDir": "dist/esm",
+    "sourceMap": true,
+    "strict": true,
+    "target": "es6"
   },
   "include": [
-    "src/**/*"
-  ],
-  "exclude": [
-    "node_modules"
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ]
 }

@@ -1,5 +1,2 @@
-import UPlot from './components/uPlot';
-
-export {
-    UPlot
-}
+export * from './hooks';
+export * from './components';
