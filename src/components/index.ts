@@ -1,1 +1,3 @@
-export * from './UPlot';
+import UPlot from './UPlot';
+
+export { UPlot };
