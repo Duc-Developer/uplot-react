@@ -1,11 +1,11 @@
 {
   "name": "uplot-react-js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "\"This is chart wrapper for uplot library\"",
   "repository": {
     "type": "git",
     "url": "https://github.com/Duc-Developer/uplot-react"
-},
+  },
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
   "files": [
