@@ -7,7 +7,7 @@ This is package base on uplot library: https://github.com/leeoniya/uPlot
 
 I. Components
 ```
-import { Uplot } from 'uplot-react-js';
+import { UPlot } from 'uplot-react-js';
 import type { UPlotProps } 'uplot-react-js';
 ```
 | STT |     props     |      type                  |    default    |    required   |
