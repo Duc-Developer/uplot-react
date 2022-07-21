@@ -6,7 +6,7 @@ import { uuid } from 'utils';
 
 import '/node_modules/uplot/dist/uPlot.min.css';
 
-const UPlot = ({ id, options, data, configs }: UPlotProps) => {
+const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
     const chartRef = useRef<any>();
     const target = useRef<any>();
     const wrapperRef = useRef<any>();
@@ -60,8 +60,10 @@ const UPlot = ({ id, options, data, configs }: UPlotProps) => {
     useEffect(() => {
         initNewChart(options, data, (newU: any) => {
             target.current = newU;
+            if (handlers && handlers.onCreated) handlers.onCreated(newU);
         });
         return () => {
+            if (handlers && handlers.beforeDelete) handlers.beforeDelete(target.current);
             cleanup(target.current);
         };
     }, [options]);
