@@ -4,7 +4,7 @@ import uPlot from 'uplot';
 import { UPlotProps } from 'models';
 import { uuid } from 'utils';
 
-import '/node_modules/uplot/dist/uPlot.min.css';
+import 'uplot/dist/uPlot.min.css';
 
 const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
     const chartRef = useRef<any>();
