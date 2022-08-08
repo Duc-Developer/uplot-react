@@ -13,4 +13,8 @@ export type UPlotProps = {
             className?: string;
         };
     };
+    handlers?: {
+        onCreated?: (newTarget: uPlot) => void;
+        beforeDelete?: (newTarget: uPlot) => void;
+    };
 };
