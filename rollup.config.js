@@ -1,42 +1,42 @@
-import resolve from "@rollup/plugin-node-resolve";
-import commonjs from "@rollup/plugin-commonjs";
-import typescript from "@rollup/plugin-typescript";
-import dts from "rollup-plugin-dts";
+import resolve from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import typescript from '@rollup/plugin-typescript';
+
 import postcss from "rollup-plugin-postcss";
+import visualizer from 'rollup-plugin-visualizer';
+import { terser } from 'rollup-plugin-terser';
+import { getFiles } from './scripts/buildUtils';
 
-import { terser } from "rollup-plugin-terser";
-import peerDepsExternal from 'rollup-plugin-peer-deps-external';
+const extensions = ['.js', '.ts', '.jsx', '.tsx'];
 
-const packageJson = require("./package.json");
-
-export default [
-    {
-        input: "src/index.ts",
-        output: [
-            {
-                file: packageJson.main,
-                format: "cjs",
-                sourcemap: true,
-            },
-            {
-                file: packageJson.module,
-                format: "esm",
-                sourcemap: true,
-            },
-        ],
-        plugins: [
-            peerDepsExternal(),
-            resolve(),
-            commonjs(),
-            typescript({ tsconfig: "./tsconfig.json" }),
-            postcss(),
-            terser(),
-        ],
+export default {
+    input: [
+        './src/index.ts',
+        ...getFiles('./src/models', extensions),
+        ...getFiles('./src/components', extensions),
+        ...getFiles('./src/utils', extensions),
+    ],
+    output: {
+        dir: 'dist',
+        format: 'esm',
+        preserveModules: true,
+        preserveModulesRoot: 'src',
+        sourcemap: true,
     },
-    {
-        input: "dist/esm/types/index.d.ts",
-        output: [{ file: "dist/index.d.ts", format: "esm" }],
-        plugins: [dts()],
-        external: [/\.css$/],
-    },
-];
+    plugins: [
+        resolve(),
+        commonjs(),
+        typescript({
+            tsconfig: './tsconfig.build.json',
+            declaration: true,
+            declarationDir: 'dist',
+        }),
+        postcss(),
+        terser(),
+        visualizer({
+            filename: 'bundle-analysis.html',
+            open: true,
+        }),
+    ],
+    external: ['react', 'react-dom'],
+};
