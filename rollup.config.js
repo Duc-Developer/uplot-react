@@ -20,7 +20,7 @@ export default {
         format: 'esm',
         preserveModules: true,
         preserveModulesRoot: 'src',
-        sourcemap: true,
+        sourcemap: false,
     },
     plugins: [
         resolve(),
@@ -29,6 +29,7 @@ export default {
             tsconfig: './tsconfig.build.json',
             declaration: true,
             declarationDir: 'dist',
+            sourcemap: false,
         }),
         postcss(),
         terser(),
