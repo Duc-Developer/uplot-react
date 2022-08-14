@@ -1,16 +1,16 @@
 <h1 style="color:#cb3837">Documentation</h1>
 
-[Introduction](#Introduction)
-[Getting Started](#Getting_started)
-[General](#General)
-[Configuration](#Configuration)
-[Axes](#Axes)
+1. [Introduction](#Introduction) <br/>
+2. [Getting Started](#Getting_Started) <br/>
+3. [General](#General) <br/>
+4. [Configuration](#Configuration) <br/>
+5. [Axes](#Axes) <br/>
 
 ### Introduction
 
 This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
-### Getting Started
+### Getting_Started
 
 ```
     Install:
@@ -21,10 +21,14 @@ This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" tar
 
 ```
 a) By default you must insert width and height into options property.
-    <div style={{ width: '720px', height: '320px'}}>
+    <div>
         <UPlot 
             data={data} 
-            options={options}
+            options={{
+                ...options,
+                width: '720px', 
+                height: '320px'
+            }}
         />
     </div>
 b) If you don't like it and you wan't to auto resize chart by parent element, you can insert autoResize = true in configs property.
