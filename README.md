@@ -10,6 +10,7 @@
 
 [Introduction](##introduction)
 
+##introduction
 This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
 [Getting Started](##getting_started)
