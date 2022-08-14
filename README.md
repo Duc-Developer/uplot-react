@@ -1,11 +1,46 @@
-Install:
-npm i uplot-react-js
-or
-yarn add uplot-react-js
+<h1 style="color:#cb3837">Documentation</h1>
 
-This is package base on uplot library: https://github.com/leeoniya/uPlot
+<ul>
+    <li><a href="doc:introduction">Introduction</a></li>
+    <li><a href="doc:getting_started">Getting Started</a></li>
+    <li><a href="doc:general">General</a></li>
+    <li><a href="doc:configuration">Configuration</a></li>
+    <li><a href="doc:axes">Axes</a></li>
+</ul>
 
-I. Components
+[1] #introduction "Introduction"
+
+This is Wrapper component for <a href="https://www.npmjs.com/package/uplot">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
+
+[2] #getting_started "Getting Started"
+```
+    Install:
+    npm i uplot-react-js
+    or
+    yarn add uplot-react-js
+```
+
+```
+a) By default you must insert width and height into options property.
+    <div style={{ width: '720px', height: '320px'}}>
+        <UPlot 
+            data={data} 
+            options={options}
+        />
+    </div>
+b) If you don't like it and you wan't to auto resize chart by parent element, you can insert autoResize = true in configs property.
+    <div style={{ width: '720px', height: '320px'}}>
+        <UPlot 
+            data={data} 
+            options={{
+                ...options,
+                autoResize: true
+            }}
+        />
+    </div>
+```
+
+Components
 ```
 import { UPlot } from 'uplot-react-js';
 import type { UPlotProps } 'uplot-react-js';
