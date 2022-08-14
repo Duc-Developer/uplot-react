@@ -2,17 +2,17 @@
 
 <ul>
     <li><a href="#introduction">Introduction</a></li>
-    <li><a href="doc:getting_started">Getting Started</a></li>
-    <li><a href="doc:general">General</a></li>
-    <li><a href="doc:configuration">Configuration</a></li>
-    <li><a href="doc:axes">Axes</a></li>
+    <li><a href="#getting_started">Getting Started</a></li>
+    <li><a href="#general">General</a></li>
+    <li><a href="#configuration">Configuration</a></li>
+    <li><a href="#axes">Axes</a></li>
 </ul>
 
-[1] [Introduction](#introduction)
+<b>[1] </b> <h2 id="introduction" style="color:#cb3837">Introduction</h2>
 
 This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
-[2] #getting_started "Getting Started"
+<b>[2] </b> <h2 id="getting_started" style="color:#cb3837">Getting Started</h2>
 ```
     Install:
     npm i uplot-react-js
