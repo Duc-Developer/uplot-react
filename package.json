@@ -1,6 +1,6 @@
 {
   "name": "uplot-react-js",
-  "version": "0.0.12",
+  "version": "0.0.13",
   "description": "\"This is chart wrapper for uplot library\"",
   "repository": {
     "type": "git",
