@@ -1,7 +1,7 @@
 <h1 style="color:#cb3837">Documentation</h1>
 
 <ul>
-    <li><a name="#introduction">Introduction</a></li>
+    <li><a href="#introduction">Introduction</a></li>
     <li><a href="doc:getting_started">Getting Started</a></li>
     <li><a href="doc:general">General</a></li>
     <li><a href="doc:configuration">Configuration</a></li>
