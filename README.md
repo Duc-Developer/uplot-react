@@ -8,11 +8,12 @@
     <li><a href="#axes">Axes</a></li>
 </ul>
 
-<b>[1] </b> <h2 id="introduction" style="color:#cb3837">Introduction</h2>
+[Introduction](##introduction)
 
 This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
-<b>[2] </b> <h2 id="getting_started" style="color:#cb3837">Getting Started</h2>
+[Getting Started](##getting_started)
+
 ```
     Install:
     npm i uplot-react-js
