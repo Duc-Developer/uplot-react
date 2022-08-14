@@ -8,9 +8,9 @@
     <li><a href="doc:axes">Axes</a></li>
 </ul>
 
-[1] #introduction "Introduction"
+[1] [Introduction](#introduction)
 
-This is Wrapper component for <a href="https://www.npmjs.com/package/uplot">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
+This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
 [2] #getting_started "Getting Started"
 ```
