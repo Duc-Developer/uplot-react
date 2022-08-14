@@ -20,7 +20,31 @@ This is Wrapper component for <a href="https://www.npmjs.com/package/uplot" targ
 ```
 
 ```
+First you need remove Strict Mode in index(.tsx | .ts) or index(.jsx | .js) files
+
+Before: 
+    ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <StrictMode>
+        <App />
+    </StrictMode>
+    );
+
+After:
+    ReactDOM.createRoot(document.getElementById('root'));
+    root.render(
+    <>
+        <App />
+    </>
+    );
+```
+
+### General
+<a href="https://codesandbox.io/s/uplot-react-js-general-g900ii" rel="nofollow"><img src="https://camo.githubusercontent.com/90808661433696bc57dce8d4ad732307b5cec6270e6b846f114dcd7ee7f9458a/68747470733a2f2f636f646573616e64626f782e696f2f7374617469632f696d672f706c61792d636f646573616e64626f782e737667" alt="Edit yk7637p62z" data-canonical-src="https://codesandbox.io/static/img/play-codesandbox.svg" style="max-width:100%;"></a>
+
+```
 a) By default you must insert width and height into options property.
+
     <div>
         <UPlot 
             data={data} 
@@ -31,7 +55,10 @@ a) By default you must insert width and height into options property.
             }}
         />
     </div>
-b) If you don't like it and you wan't to auto resize chart by parent element, you can insert autoResize = true in configs property.
+
+b) If you don't like it and you wan't to auto resize chart by parent element, 
+you can insert autoResize = true in configs property.
+
     <div style={{ width: '720px', height: '320px'}}>
         <UPlot 
             data={data} 
@@ -41,20 +68,5 @@ b) If you don't like it and you wan't to auto resize chart by parent element, yo
             }}
         />
     </div>
-```
 
-Components
 ```
-import { UPlot } from 'uplot-react-js';
-import type { UPlotProps } 'uplot-react-js';
-```
-| STT |     props     |      type                  |    default    |    required   |
-| --- | ------------- | -------------------------- | ------------- | ------------- |
-| 1   | id            | string                     | none          | no            |
-| 2   | options       | options in UPlotProps      | none          | yes           |
-| 3   | data          | data in UPlotProps         | none          | yes           |
-| 4   | configs       | configs in UPlotProps      | none          | no            |
-
-more configs in here : https://github.com/leeoniya/uPlot/tree/master/docs
-
-Note: This is not the official version. Please wait for me to release v1.x.x version in the near future.

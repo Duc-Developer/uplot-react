@@ -47,7 +47,7 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
                 _callback(newU);
             }
         },
-        [chartRef.current]
+        [chartRef.current, configs?.wrapper?.width, configs?.wrapper?.height]
     );
 
     const cleanup = (_uPlot: any) => {
@@ -72,13 +72,14 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
         target?.current?.setData(data);
     }, [data]);
 
+    // need check auto resize again
     return (
         <div
             id={wrapperId}
             ref={wrapperRef}
             style={{
                 width: configs?.wrapper?.width ?? 'auto',
-                height: configs?.wrapper?.height ?? 'auto',
+                height: configs?.wrapper?.height ?? '100%',
                 ...configs?.wrapper?.style
             }}
             className={configs?.wrapper?.className ?? ''}
