@@ -1,19 +1,16 @@
 <h1 style="color:#cb3837">Documentation</h1>
 
-<ul>
-    <li><a href="#introduction">Introduction</a></li>
-    <li><a href="#getting_started">Getting Started</a></li>
-    <li><a href="#general">General</a></li>
-    <li><a href="#configuration">Configuration</a></li>
-    <li><a href="#axes">Axes</a></li>
-</ul>
+[Introduction](#Introduction)
+[Getting Started](#Getting_started)
+[General](#General)
+[Configuration](#Configuration)
+[Axes](#Axes)
 
-[Introduction](##introduction)
+### Introduction
 
-##introduction
 This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
-[Getting Started](##getting_started)
+### Getting Started
 
 ```
     Install:
