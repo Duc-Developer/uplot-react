@@ -8,7 +8,7 @@
 
 ### Introduction
 
-This is Wrapper component for <a href="https://www.npmjs.com/package/uplotb" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
+This is Wrapper component for <a href="https://www.npmjs.com/package/uplot" target="_blank">uplot</a> library (A small (~40 KB min), fast chart for time series, lines, areas, ohlc & bars).
 
 ### Getting_Started
 
