@@ -3,6 +3,7 @@ import uPlot from 'uplot';
 
 import { UPlotProps } from 'models';
 import { uuid } from 'utils';
+import { throttle } from 'lodash';
 
 import 'uplot/dist/uPlot.min.css';
 
@@ -11,6 +12,10 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
     const target = useRef<any>();
     const wrapperRef = useRef<any>();
     const wrapperId = useMemo(() => id ?? uuid(), [id]);
+
+    const throttleResize = throttle(({ width, height, uplot }: { width: number, height: number, uplot: any }) => {
+        uplot?.setSize({ width, height });
+    }, 300);
 
     const autoResizeChart = (_uPlot: any) => {
         if (!wrapperRef || !wrapperRef.current) return;
@@ -23,11 +28,15 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
                 let decreaseHeight = 0;
                 if (legendTable) {
                     // decreaseWidth =
-                    decreaseHeight = legendTable.clientHeight;
+                    decreaseHeight = legendTable.clientHeight ?? 0;
                 }
                 const chartWidth = cr.width - decreaseWidth;
                 const chartHeigh = cr.height - decreaseHeight;
-                _uPlot.setSize({ width: chartWidth, height: chartHeigh });
+                throttleResize({
+                    width: chartWidth,
+                    height: chartHeigh,
+                    uplot: _uPlot
+                });
             }
         });
         resizeObserverByWrapper.observe(wrapperRef.current);
@@ -78,8 +87,8 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
             id={wrapperId}
             ref={wrapperRef}
             style={{
-                width: configs?.wrapper?.width ?? 'auto',
-                height: configs?.wrapper?.height ?? '100%',
+                width: 'auto',
+                height: '100%',
                 ...configs?.wrapper?.style
             }}
             className={configs?.wrapper?.className ?? ''}
