@@ -3,6 +3,7 @@ import uPlot from 'uplot';
 
 import { UPlotProps } from 'models';
 import { uuid } from 'utils';
+import { throttle } from 'lodash';
 
 import 'uplot/dist/uPlot.min.css';
 
@@ -12,22 +13,31 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
     const wrapperRef = useRef<any>();
     const wrapperId = useMemo(() => id ?? uuid(), [id]);
 
+    const throttleResize = throttle(({ width, height, uplot }: { width: number, height: number, uplot: any }) => {
+        uplot?.setSize({ width, height });
+    }, 300);
+
     const autoResizeChart = (_uPlot: any) => {
         if (!wrapperRef || !wrapperRef.current) return;
-        const legendTable = document.getElementById(wrapperId)?.getElementsByClassName('u-legend')[0];
         const resizeObserverByWrapper = new ResizeObserver((entries) => {
             for (let entry of entries) {
                 const cr = entry.contentRect;
                 if (_uPlot.width === cr.width && _uPlot.height === cr.height) continue;
                 let decreaseWidth = 0;
                 let decreaseHeight = 0;
+                const legendTable = document.getElementById(wrapperId)?.getElementsByClassName('u-legend')[0];
                 if (legendTable) {
                     // decreaseWidth =
-                    decreaseHeight = legendTable.clientHeight;
+                    decreaseHeight = legendTable.clientHeight ?? 0;
                 }
                 const chartWidth = cr.width - decreaseWidth;
-                const chartHeigh = cr.height - decreaseHeight;
-                _uPlot.setSize({ width: chartWidth, height: chartHeigh });
+                const chartHeight = decreaseHeight > cr.height ? cr.height : cr.height - decreaseHeight;
+
+                throttleResize({
+                    width: chartWidth,
+                    height: chartHeight,
+                    uplot: _uPlot
+                });
             }
         });
         resizeObserverByWrapper.observe(wrapperRef.current);
@@ -47,7 +57,7 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
                 _callback(newU);
             }
         },
-        [chartRef.current]
+        [chartRef.current, configs?.wrapper?.width, configs?.wrapper?.height]
     );
 
     const cleanup = (_uPlot: any) => {
@@ -72,13 +82,14 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
         target?.current?.setData(data);
     }, [data]);
 
+    // need check auto resize again
     return (
         <div
             id={wrapperId}
             ref={wrapperRef}
             style={{
-                width: configs?.wrapper?.width ?? 'auto',
-                height: configs?.wrapper?.height ?? 'auto',
+                width: 'auto',
+                height: '100%',
                 ...configs?.wrapper?.style
             }}
             className={configs?.wrapper?.className ?? ''}
