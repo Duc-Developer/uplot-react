@@ -19,22 +19,23 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
 
     const autoResizeChart = (_uPlot: any) => {
         if (!wrapperRef || !wrapperRef.current) return;
-        const legendTable = document.getElementById(wrapperId)?.getElementsByClassName('u-legend')[0];
         const resizeObserverByWrapper = new ResizeObserver((entries) => {
             for (let entry of entries) {
                 const cr = entry.contentRect;
                 if (_uPlot.width === cr.width && _uPlot.height === cr.height) continue;
                 let decreaseWidth = 0;
                 let decreaseHeight = 0;
+                const legendTable = document.getElementById(wrapperId)?.getElementsByClassName('u-legend')[0];
                 if (legendTable) {
                     // decreaseWidth =
                     decreaseHeight = legendTable.clientHeight ?? 0;
                 }
                 const chartWidth = cr.width - decreaseWidth;
-                const chartHeigh = cr.height - decreaseHeight;
+                const chartHeight = decreaseHeight > cr.height ? cr.height : cr.height - decreaseHeight;
+
                 throttleResize({
                     width: chartWidth,
-                    height: chartHeigh,
+                    height: chartHeight,
                     uplot: _uPlot
                 });
             }
