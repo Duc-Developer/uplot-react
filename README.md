@@ -91,7 +91,6 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 ### options: 
 <details><summary>Explore</summary>
 
-```
 | Name | Type | ItemValue | Default | Description |
 | --- | ------ | --------- | ------ | ------ | 
 | mode | number | 1 or 2 | 1 | 1: aligned & ordered, single-x / y-per-series,<br/> 2: unordered & faceted, per-series/per-point x,y,size,label,color,shape,etc. |
@@ -117,7 +116,7 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | focus | uplot.Focus | coming soon... | coming soon... | coming soon... |
 | hooks | uplot.Hooks[] | coming soon... | coming soon... | coming soon... |
 | plugins | uplot.Plugin[] | coming soon... | coming soon... | coming soon... |
-```
+
 </details>
 
 ### data: 
@@ -169,7 +168,7 @@ div into which .u-select will be placed: .u-over or .u-under
 <details><summary>Explore</summary>
 This is object control yaxes, line style, point style,...
 
-```
+
 | Name | Type | ItemValue | Default | Description |
 | show | boolean or function |  |  | if boolean or func returns boolean (this func is have 4 params: uplotSelf,seriesIdx,idx0,idx1), round points are drawn with defined options, else fn should draw own custom points via self |
 | paths | function |  |  | (self: uPlot, seriesIdx: number, idx0: number, idx1: number, filtIdxs?: number[] or null) => Paths or null |
@@ -181,5 +180,5 @@ This is object control yaxes, line style, point style,...
 | dash | array | number |  | line dash segment array |
 | dash | Series.Cap | ...coming soon | ...coming soon | line cap|
 | fill | Fill | ...coming soon | #fff | fill color of circle |
-```
+
 </details>
