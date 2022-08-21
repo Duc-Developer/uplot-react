@@ -106,8 +106,8 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | drawOrder | array | 'axes' or 'series' | ["axes", "series"] | drawing order for axes/grid & series |
 | pxAlign | boolean or number |  | true | whether vt & hz lines of series/grid/ticks should be crisp/sharp or sub-px antialiased |
 | series | array | [Series](#Series) | coming soon... | coming soon... |
-| bands | uplot.Band[] | coming soon... | coming soon... | coming soon... |
-| scales | uplot.Scales[] | coming soon... | coming soon... | coming soon... |
+| bands | array | [Band](#Band) |  | coming soon... |
+| scales | array | [Scales](#Scales) | coming soon... | coming soon... |
 | axes | uplot.Axis[] | coming soon... | coming soon... | coming soon... |
 | padding | uplot.Padding|  | [top: PaddingSide, right: PaddingSide, bottom: PaddingSide, left: PaddingSide] | coming soon... |
 | select | uplot.Select | [Select](#uplot.select) | coming soon... | coming soon... |
@@ -176,9 +176,39 @@ This is object control yaxes, line style, point style,...
 | size | number |  |  | diameter of point in CSS pixels |
 | space | number |  | size * 2 | minimum avg space between point centers before they're shown |
 | width | number |  |  | line width of circle outline in CSS pixels |
-| stroke | Stroke | ...coming soon | ...coming soon | line color of circle outline (defaults to series.stroke) |
+| stroke | Stroke | coming soon... | coming soon... | line color of circle outline (defaults to series.stroke) |
 | dash | array | number |  | line dash segment array |
-| dash | Series.Cap | ...coming soon | ...coming soon | line cap|
-| fill | Fill | ...coming soon | #fff | fill color of circle |
+| dash | Series.Cap | coming soon... | coming soon... | line cap|
+| fill | Fill | coming soon... | #fff | fill color of circle |
 
+</details>
+
+### Band
+<details><summary>Explore</summary>
+
+| Name | Type | ItemValue | Default | Description |
+| --- | ------ | --------- | ------ | ------ | 
+| show | boolean | true or false | false | band on/off |
+| series | array | [fromSeriesIdx: number, toSeriesIdx: number] |  | series indices of upper and lower band edges |
+| fill | coming soon... |  |  |  area fill style |
+| dir | number | 1 or -1 |   | whether to fill towards yMin (-1) or yMax (+1) between "from" & "to" series |
+</details>
+
+### Scales
+<details><summary>Explore</summary>
+
+this is object:
+```
+interface Scales {
+		[key: string]: Scale;
+	}
+```
+Scale have properties:
+
+| Name | Type | ItemValue | Default | Description |
+| --- | ------ | --------- | ------ | ------ | 
+| time | boolean |  |  | is this scale temporal, with series' data in UNIX timestamps? |
+| auto | boolean or function |  |  |  | determines whether all series' data on this scale will be scanned to find the full min/max range. ((self: uPlot, resetScales: boolean) => boolean) |
+| range | [min: number or null, max: number or null] or (self: uPlot, initMin: number, initMax: number, scaleKey: string) => MinMax or {min: Range.Limit;max: Range.Limit;} |  |  |  area fill style |
+<a href="https://github.com/Duc-Developer/uplot-react/tree/master/documents" target="_blank">More info...</a>
 </details>
