@@ -43,28 +43,23 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
         resizeObserverByWrapper.observe(wrapperRef.current);
     };
 
-    const initNewChart = useCallback(
-        (_opts: any, _data: any, _callback: (target: uPlot) => void) => {
-            if (chartRef.current) {
-                const newU = new uPlot(_opts, _data, chartRef.current);
-                if (configs && configs.autoResize) {
-                    const { wrapper } = configs;
-                    if (!wrapper?.width || !wrapper?.height) {
-                        console.warn('width height of wrapper must required for auto resize chart');
-                    }
-                    autoResizeChart(newU);
-                }
-                _callback(newU);
+    const initNewChart = (_opts: any, _data: any, _callback: (target: uPlot) => void) => {
+        if (!_opts || !_data) {
+            console.error('options and data is required!');
+            return;
+        }
+        if (chartRef.current) {
+            const newU = new uPlot(_opts, _data, chartRef.current);
+            if (!configs?.autoResize && (!_opts.width || !_opts.height)) {
+                console.warn('width and height must required in options if you do not use autoResize!');
             }
-        },
-        [chartRef.current, configs?.wrapper?.width, configs?.wrapper?.height]
-    );
+            if (configs && configs.autoResize) autoResizeChart(newU);
+            _callback(newU);
+        }
+    };
 
     const cleanup = (_uPlot: any) => {
-        if (_uPlot) {
-            _uPlot?.destroy();
-            chartRef.current = null;
-        }
+        if (_uPlot) _uPlot?.destroy();
     };
 
     useEffect(() => {
@@ -81,6 +76,12 @@ const UPlot = ({ id, options, data, configs, handlers }: UPlotProps) => {
     useEffect(() => {
         target?.current?.setData(data);
     }, [data]);
+
+    useEffect(() => {
+        return () => {
+            chartRef.current = null;
+        };
+    }, []);
 
     // need check auto resize again
     return (
