@@ -89,7 +89,9 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | 4   | configs       | [configs](#config) in UPlotProps      | none          | no            |
 
 ### options
-| Name | Type | Values | Default | Description |
+<details><summary>Explore</summary>
+
+| Name | Type | ItemValue | Default | Description |
 | --- | ------ | --------- | ------ | ------ | 
 | mode | number | 1 or 2 | 1 | 1: aligned & ordered, single-x / y-per-series,<br/> 2: unordered & faceted, per-series/per-point x,y,size,label,color,shape,etc. |
 | title | string |  | none | chart title |
@@ -97,13 +99,13 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | class | string |  | none | className to add to chart uplot canvas |
 | width | number |  | none | width of chart |
 | height | number |  | none | height of chart |
-| data | uplot.AlignedData | [AlignedData](#AlignedData) | none |  |
-| tzDate | function (uplot.LocalDateFromUnix) | [tzDate](#tzDate) | none | Converts a unix timestamp to Date that's time-adjusted for the desired timezone |
-| fmtDate | function (uplot.DateFormatterFactory) | [fmtDate](#fmtDate) | none | Creates an efficient formatter for Date objects from a template string, e.g. {YYYY}-{MM}-{DD} */ |
+| data | object | [AlignedData](#AlignedData) | none |  |
+| tzDate | function | [tzDate](#tzDate) | none | Converts a unix timestamp to Date that's time-adjusted for the desired timezone |
+| fmtDate | function | [fmtDate](#fmtDate) | none | Creates an efficient formatter for Date objects from a template string, e.g. {YYYY}-{MM}-{DD} */ |
 | ms | number | 1e-3 or 1 | 1e-3 | timestamp multiplier that yields 1 millisecond |
-| drawOrder | uplot.DrawOrderKey[] | 'axes' or 'series' | ["axes", "series"] | drawing order for axes/grid & series |
+| drawOrder | array | 'axes' or 'series' | ["axes", "series"] | drawing order for axes/grid & series |
 | pxAlign | boolean or number |  | true | whether vt & hz lines of series/grid/ticks should be crisp/sharp or sub-px antialiased |
-| series | uplot.Series[] | coming soon... | coming soon... | coming soon... |
+| series | array | [Series](#Series) | coming soon... | coming soon... |
 | bands | uplot.Band[] | coming soon... | coming soon... | coming soon... |
 | scales | uplot.Scales[] | coming soon... | coming soon... | coming soon... |
 | axes | uplot.Axis[] | coming soon... | coming soon... | coming soon... |
@@ -114,12 +116,22 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | focus | uplot.Focus | coming soon... | coming soon... | coming soon... |
 | hooks | uplot.Hooks[] | coming soon... | coming soon... | coming soon... |
 | plugins | uplot.Plugin[] | coming soon... | coming soon... | coming soon... |
+</details>
 
 ### data
+<details><summary>Explore</summary>
+
+</details>
+
 ### config
 
-Advance More:
-#### AlignedData
+<details><summary>Explore</summary>
+
+</details>
+
+<h2 style="color:#cb3837">Item Details:</h1>
+
+#### AlignedData[AlignedData1]
 In options.mode = 1, per xValue correspond with per yValue
 ```
 {
@@ -127,7 +139,7 @@ In options.mode = 1, per xValue correspond with per yValue
     yValues: any[]
 }
 ```
-<b style='color::#cb3837'>NOTE:</b> if xValues is time, it default is seconds, if you don't like it, you can config with <b>ms</b> in options config.
+<b style='color:#cb3837'>NOTE:</b> if xValues is time, it default is seconds, if you don't like it, you can config with <b>ms</b> in options config.
 
 ### tzDate
 ```
@@ -149,3 +161,5 @@ div into which .u-select will be placed: .u-over or .u-under
     over?: boolean; // default true
 }
 ```
+
+### Series
