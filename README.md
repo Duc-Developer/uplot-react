@@ -168,8 +168,8 @@ div into which .u-select will be placed: .u-over or .u-under
 <details><summary>Explore</summary>
 This is object control yaxes, line style, point style,...
 
-
 | Name | Type | ItemValue | Default | Description |
+| --- | ------ | --------- | ------ | ------ | 
 | show | boolean or function |  |  | if boolean or func returns boolean (this func is have 4 params: uplotSelf,seriesIdx,idx0,idx1), round points are drawn with defined options, else fn should draw own custom points via self |
 | paths | function |  |  | (self: uPlot, seriesIdx: number, idx0: number, idx1: number, filtIdxs?: number[] or null) => Paths or null |
 | filter | Points.Filter |  |  | may return an array of points indices to draw Points.Filter = number[] or null or ((self: uPlot, seriesIdx: number, show: boolean, gaps?: null or number[][]) => number[] or null) |
