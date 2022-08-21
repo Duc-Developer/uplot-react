@@ -1,3 +1,4 @@
+```
 declare class uPlot {
 	/** when passing a function for @targ, call init() after attaching self.root to the DOM */
 	constructor(
@@ -1115,3 +1116,5 @@ declare namespace uPlot {
 }
 
 export as namespace uPlot;
+
+```
