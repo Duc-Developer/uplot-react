@@ -210,5 +210,6 @@ Scale have properties:
 | time | boolean |  |  | is this scale temporal, with series' data in UNIX timestamps? |
 | auto | boolean or function |  |  |  | determines whether all series' data on this scale will be scanned to find the full min/max range. ((self: uPlot, resetScales: boolean) => boolean) |
 | range | [min: number or null, max: number or null] or (self: uPlot, initMin: number, initMax: number, scaleKey: string) => MinMax or {min: Range.Limit;max: Range.Limit;} |  |  |  area fill style |
+
 <a href="https://github.com/Duc-Developer/uplot-react/tree/master/documents" target="_blank">More info...</a>
 </details>
