@@ -88,8 +88,7 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | 3   | data          | [data](#data) in UPlotProps         | none          | yes           |
 | 4   | configs       | [configs](#config) in UPlotProps      | none          | no            |
 
-### options
-<details><summary>Explore</summary>
+### options: <details><summary>Explore</summary>
 
 | Name | Type | ItemValue | Default | Description |
 | --- | ------ | --------- | ------ | ------ | 
@@ -118,20 +117,19 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | plugins | uplot.Plugin[] | coming soon... | coming soon... | coming soon... |
 </details>
 
-### data
-<details><summary>Explore</summary>
+### data: <details><summary>Explore</summary>
+
 
 </details>
 
-### config
+### config: <details><summary>Explore</summary>
 
-<details><summary>Explore</summary>
 
 </details>
 
 <h2 style="color:#cb3837">Item Details:</h1>
 
-#### AlignedData[AlignedData1]
+#### AlignedData
 In options.mode = 1, per xValue correspond with per yValue
 ```
 {
