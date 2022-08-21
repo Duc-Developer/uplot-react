@@ -88,8 +88,10 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | 3   | data          | [data](#data) in UPlotProps         | none          | yes           |
 | 4   | configs       | [configs](#config) in UPlotProps      | none          | no            |
 
-### options: <details><summary>Explore</summary>
+### options: 
+<details><summary>Explore</summary>
 
+```
 | Name | Type | ItemValue | Default | Description |
 | --- | ------ | --------- | ------ | ------ | 
 | mode | number | 1 or 2 | 1 | 1: aligned & ordered, single-x / y-per-series,<br/> 2: unordered & faceted, per-series/per-point x,y,size,label,color,shape,etc. |
@@ -115,14 +117,17 @@ you can insert autoResize = true in configs property. And chart auto resize by p
 | focus | uplot.Focus | coming soon... | coming soon... | coming soon... |
 | hooks | uplot.Hooks[] | coming soon... | coming soon... | coming soon... |
 | plugins | uplot.Plugin[] | coming soon... | coming soon... | coming soon... |
+```
 </details>
 
-### data: <details><summary>Explore</summary>
+### data: 
+<details><summary>Explore</summary>
 
 
 </details>
 
-### config: <details><summary>Explore</summary>
+### config: 
+<details><summary>Explore</summary>
 
 
 </details>
@@ -161,3 +166,20 @@ div into which .u-select will be placed: .u-over or .u-under
 ```
 
 ### Series
+<details><summary>Explore</summary>
+This is object control yaxes, line style, point style,...
+
+```
+| Name | Type | ItemValue | Default | Description |
+| show | boolean or function |  |  | if boolean or func returns boolean (this func is have 4 params: uplotSelf,seriesIdx,idx0,idx1), round points are drawn with defined options, else fn should draw own custom points via self |
+| paths | function |  |  | (self: uPlot, seriesIdx: number, idx0: number, idx1: number, filtIdxs?: number[] or null) => Paths or null |
+| filter | Points.Filter |  |  | may return an array of points indices to draw Points.Filter = number[] or null or ((self: uPlot, seriesIdx: number, show: boolean, gaps?: null or number[][]) => number[] or null) |
+| size | number |  |  | diameter of point in CSS pixels |
+| space | number |  | size * 2 | minimum avg space between point centers before they're shown |
+| width | number |  |  | line width of circle outline in CSS pixels |
+| stroke | Stroke | ...coming soon | ...coming soon | line color of circle outline (defaults to series.stroke) |
+| dash | array | number |  | line dash segment array |
+| dash | Series.Cap | ...coming soon | ...coming soon | line cap|
+| fill | Fill | ...coming soon | #fff | fill color of circle |
+```
+</details>
