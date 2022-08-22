@@ -1,9 +1,8 @@
-import React, { useCallback, useEffect, useMemo, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import uPlot from 'uplot';
 
 import { UPlotProps } from 'models';
-import { uuid } from 'utils';
-import { throttle } from 'lodash';
+import { uuid, throttle } from 'utils';
 
 import 'uplot/dist/uPlot.min.css';
 
