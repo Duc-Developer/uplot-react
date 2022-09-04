@@ -29,7 +29,6 @@
   "author": "Duc-Developer",
   "license": "MIT",
   "peerDependencies": {
-    "lodash": ">=4.17.21",
     "react": ">=17.0.2",
     "react-dom": ">=17.0.2",
     "uplot": ">=1.6.22"
@@ -43,7 +42,6 @@
     "@types/node": "^17.0.45",
     "@types/react": "^17.0.43",
     "@types/react-dom": "^17.0.14",
-    "lodash": "^4.17.21",
     "postcss": "^8.4.16",
     "prettier": "^2.7.1",
     "react": "^17.0.2",
